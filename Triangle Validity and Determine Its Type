@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    float a, b, c;
+
+    printf("Enter three sides of the triangle: ");
+    
+    if (scanf("%f %f %f", &a, &b, &c) != 3 || a <= 0 || b <= 0 || c <= 0) {
+        printf("Invalid input! Please enter positive values.\n");
+        return 1;
+    }
+
+    // Check triangle validity using triangle inequality rule
+    if ((a + b > c) && (a + c > b) && (b + c > a)) {
+
+        printf("The triangle is valid.\n");
+
+        if (a == b && b == c) {
+            printf("Triangle Type: Equilateral\n");
+        }
+        else if (a == b || b == c || a == c) {
+            printf("Triangle Type: Isosceles\n");
+        }
+        else {
+            printf("Triangle Type: Scalene\n");
+        }
+    } 
+    else {
+        printf("The triangle is not valid.\n");
+    }
+
+    return 0;
+}
